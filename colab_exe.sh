@@ -14,15 +14,14 @@ clear
 # Branding
 
 printf """$c$b   
-      ██╗     ██╗███╗  ██╗██╗   ██╗██╗  ██╗    ██████╗ ███████╗ ██████╗██╗  ██╗████████╗ █████╗ ██████╗ 
-      ██║░░░░░██║████╗░██║██║░░░██║╚██╗██╔╝    ██╔══██╗██╔════╝██╔════╝██║░██╔╝╚══██╔══╝██╔══██╗██╔══██╗
-      ██║░░░░░██║██╔██╗██║██║░░░██║░╚███╔╝░    ██║░░██║█████╗░░╚█████╗░█████═╝░░░░██║░░░██║░░██║██████╔╝
-      ██║░░░░░██║██║╚████║██║░░░██║░██╔██╗░    ██║░░██║██╔══╝░░░╚═══██╗██╔═██╗░░░░██║░░░██║░░██║██╔═══╝░
-      ███████╗██║██║░╚███║╚██████╔╝██╔╝╚██╗    ██████╔╝███████╗██████╔╝██║░╚██╗░░░██║░░░╚█████╔╝██║░░░░
-      ╚══════╝╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝    ╚═════╝░╚══════╝╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░░
-    $r  𝐁𝐲 𝐀𝐩𝐢𝐱 𝐋𝐨𝐢
-      © 2021 $c For Accessing Remote Desktop
-      Github : https://github.com/apix-loi/          
+
+      ██╗     ██╗███╗  ██╗██╗   ██╗██╗  ██╗   
+      ██║░░░░░██║████╗░██║██║░░░██║╚██╗██╔╝   
+      ██║░░░░░██║██╔██╗██║██║░░░██║░╚███╔╝░   
+      ██║░░░░░██║██║╚████║██║░░░██║░██╔██╗░    
+      ███████╗██║██║░╚███║╚██████╔╝██╔╝╚██╗    
+      ╚══════╝╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝    
+      
 $endc$enda""";
 
 
@@ -43,7 +42,7 @@ fi
 sudo adduser linux sudo
 
 # Set password of user to 'root'
-echo 'linux:root' | sudo chpasswd
+echo 'linux:2112' | sudo chpasswd
 
 # Change default shell from sh to bash
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
@@ -106,6 +105,77 @@ printf "$g$b    Installing CrossOver $endc$enda" >&2
     sudo apt install --assume-yes --fix-broken
 } &> /dev/null &&
 printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+# Install Avidemux1
+printf "$g$b    Installing Avidemux1 $endc$enda" >&2
+{
+    wget https://www.deb-multimedia.org/pool/main/a/avidemux-dmo/avidemux_2.7.8+20210616.gitdc323dac9-dmo1_amd64.deb
+    sudo dpkg -i avidemux_2.7.8+20210616.gitdc323dac9-dmo1_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    CrossOver Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+# Install Avidemux2
+printf "$g$b    Installing Avidemux2 $endc$enda" >&2
+{
+    wget https://www.deb-multimedia.org/pool/main/a/avidemux-dmo/avidemux-plugins_2.7.8+20210616.gitdc323dac9-dmo1_amd64.deb
+    sudo dpkg -i avidemux-plugins_2.7.8+20210616.gitdc323dac9-dmo1_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    Avidemux1 Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+
+# Install Avidemux3
+printf "$g$b    Installing Avidemux3 $endc$enda" >&2
+{
+    wget https://www.deb-multimedia.org/pool/main/a/avidemux-dmo/avidemux-qt_2.7.8+20210616.gitdc323dac9-dmo1_amd64.deb
+    sudo dpkg -i avidemux-qt_2.7.8+20210616.gitdc323dac9-dmo1_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    Avidemux3 Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+# Install Aegisub1
+printf "$g$b    Installing Aegisub1 $endc$enda" >&2
+{
+    wget http://ftp.br.debian.org/debian/pool/main/a/aegisub/aegisub_3.2.2+dfsg-6+b1_amd64.deb
+    sudo dpkg -i aegisub_3.2.2+dfsg-6+b1_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    Aegisub1 Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+# Install Aegisub1
+printf "$g$b    Installing Aegisub1 $endc$enda" >&2
+{
+    wget http://ftp.br.debian.org/debian/pool/main/a/aegisub/aegisub-l10n_3.2.2+dfsg-6_all.deb
+    sudo dpkg -i aegisub-l10n_3.2.2+dfsg-6_all.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    Aegisub2 Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+# Install Font-Manager
+printf "$g$b    Installing Font-manager $endc$enda" >&2
+{
+    wget http://ftp.br.debian.org/debian/pool/main/f/font-manager/font-manager_0.8.7-1_amd64.deb
+    sudo dpkg -i font-manager_0.8.7-1_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    Font-manager Installed $endc$enda\n" >&2 ||
+printf "\r$r$b    Error Occured $endc$enda\n" >&2
+
+# Install ffmpeg
+printf "$g$b    Installing ffmpeg $endc$enda" >&2
+{
+    wget http://ftp.br.debian.org/debian/pool/main/f/ffmpeg/ffmpeg_4.4-6_amd64.deb
+    sudo dpkg -i ffmpeg_4.4-6_amd64.deb
+    sudo apt install --assume-yes --fix-broken
+} &> /dev/null &&
+printf "\r$c$b    ffmpeg Installed $endc$enda\n" >&2 ||
 printf "\r$r$b    Error Occured $endc$enda\n" >&2
 
 
